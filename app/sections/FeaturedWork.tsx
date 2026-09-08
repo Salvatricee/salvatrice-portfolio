@@ -37,8 +37,8 @@ export default function FeaturedWork() {
                 <div className="grid lg:grid-cols-2 gap-0">
                   <div className="relative h-64 lg:h-auto min-h-[300px] bg-surface flex items-center justify-center overflow-hidden">
                     <div className="relative text-center p-8">
-                                            {project.logoImage ? (
-                        <div className="w-24 h-24 mx-auto mb-4 relative">
+                      {project.logoImage ? (
+                        <div className="w-40 h-40 mx-auto mb-4 relative">
                           <Image
                             src={project.logoImage}
                             alt={`${project.title} logo`}
@@ -47,12 +47,12 @@ export default function FeaturedWork() {
                           />
                         </div>
                       ) : project.logoText ? (
-                        <div className="mx-auto mb-4 flex flex-col items-center gap-1">
-                          <span className="text-5xl" style={{ color: project.logoAccent }}>
+                        <div className="mx-auto mb-4 flex flex-col items-center gap-2">
+                          <span className="text-7xl" style={{ color: project.logoAccent }}>
                             {project.logoEmoji}
                           </span>
                           <span
-                            className="font-heading font-bold text-xl tracking-widest"
+                            className="font-heading font-bold text-3xl tracking-widest"
                             style={{ color: project.logoAccent }}
                           >
                             {project.logoText}
@@ -60,13 +60,13 @@ export default function FeaturedWork() {
                         </div>
                       ) : (
                         <div
-                          className="w-24 h-24 mx-auto mb-4 flex items-center justify-center text-5xl"
+                          className="w-40 h-40 mx-auto mb-4 flex items-center justify-center text-7xl"
                           style={{ color: project.logoAccent }}
                         >
                           {project.logoEmoji}
                         </div>
                       )}
-                      {/* <p className="text-ink font-heading font-bold text-xl mt-2">{project.title}</p> */}
+                      <p className="text-ink font-heading font-bold text-xl mt-2">{project.title}</p>
                     </div>
                   </div>
 
