@@ -4,22 +4,22 @@ const ecosystem = [
   {
     title: "Understand",
     skills: "Product Management · UX Research",
-    description: "Starting with people and problems. I research, interview, and analyze to understand what actually needs solving.",
+    description: "Starting with the problem; understanding people, context, and the needs behind what's to be solved",
   },
   {
     title: "Imagine",
     skills: "Product Strategy · UI/UX Design",
-    description: "Turning insights into direction. I define the product vision, create user flows, and design interfaces that feel intuitive.",
+    description: "Turning insights into product direction, user flows, and experiences that make complex things feel simple",
   },
   {
     title: "Build",
     skills: "Frontend · Mobile · Backend",
-    description: "Bringing ideas to life through code. I develop web applications, mobile experiences, and backend systems.",
+    description: "Turning ideas into working products through web, mobile, and backend development ",
   },
   {
     title: "Improve",
     skills: "QA · Data & ML · Cybersecurity · IoT",
-    description: "Making things better and safer. I test for quality, explore data insights, and experiment with emerging technologies.",
+    description: "Testing, analyzing ,and experimenting to make products more reliable, intelligent, secure, and useful",
   },
 ];
 
@@ -36,12 +36,14 @@ export default function About() {
               I Like Seeing the Whole Picture.
             </h2>
             <p className="text-muted text-lg leading-relaxed">
-              My interests go beyond writing code. I&apos;ve explored different parts
-              of the technology and product development process, understanding
-              users, defining problems, designing experiences, developing
-              software, testing products, working with data, and experimenting
-              with technologies like IoT and machine learning. I&apos;m curious
-              about how all these pieces connect.
+              I&apos;m curious about how things work, why problems exist, and 
+              what could make them better. My approach goes beyond building what 
+              is asked of me, I want to understand the people, context, and 
+              systems behind a problem before deciding what to build.
+
+              I&apos;ve explored product management, UX, design, software development, data, 
+              IoT, and quality assurance, giving me the ability to look at a problem from 
+              different perspectives and connect those perspectives into one solution.
             </p>
           </div>
         </AnimatedSection>

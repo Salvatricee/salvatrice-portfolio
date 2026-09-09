@@ -1,133 +1,96 @@
-export interface SkillCategory {
+export interface CoreSkill {
   id: string;
   title: string;
-  skills: {
-    name: string;
-    description: string;
-  }[];
+  description: string;
+  tags: string[];
 }
 
-export const skillCategories: SkillCategory[] = [
+export interface CapabilitySkill {
+  id: string;
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+export const coreSkills: CoreSkill[] = [
   {
-    id: "product",
-    title: "Product & Research",
-    skills: [
-      {
-        name: "Product Management",
-        description:
-          "Defining product vision, prioritizing features, and aligning teams around user needs and business goals.",
-      },
-      {
-        name: "UX Research",
-        description:
-          "Interviewing users, conducting surveys, and synthesizing insights to understand real problems before building.",
-      },
-    ],
+    id: "product-management",
+    title: "Product Management",
+    description:
+      "Turning real-world problems into clear product opportunities, defining what to build, and guiding solutions from idea to execution.",
+    tags: ["Product strategy", "User research", "Product discovery", "Roadmapping"],
   },
   {
-    id: "design",
-    title: "Design",
-    skills: [
-      {
-        name: "UI/UX Design",
-        description:
-          "Creating wireframes, user flows, and high-fidelity interfaces that are intuitive and visually cohesive.",
-      },
-    ],
+    id: "data-analytics",
+    title: "Data & Analytics",
+    description:
+      "Using data to uncover patterns, generate insights, and make better-informed product decisions.",
+    tags: ["Python", "SQL", "PostgreSQL", "Data analysis", "Data visualization"],
+  },
+  {
+    id: "ai-ml",
+    title: "AI & Machine Learning",
+    description:
+      "Exploring data and intelligent systems to identify patterns, automate processes, and create smarter solutions.",
+    tags: ["Python", "Machine Learning", "Data modeling", "AI concepts"],
+  },
+];
+
+export const capabilitySkills: CapabilitySkill[] = [
+  {
+    id: "ux-research",
+    title: "UX Research",
+    description:
+      "Understanding users, their needs, and pain points to uncover insights that shape better products.",
+    tags: ["User interviews", "User research", "Personas", "User journeys"],
+  },
+  {
+    id: "ui-ux-design",
+    title: "UI/UX Design",
+    description:
+      "Creating simple, intuitive experiences that make products clear and enjoyable to use.",
+    tags: ["Figma", "Wireframing", "Prototyping", "Design systems"],
   },
   {
     id: "frontend",
     title: "Frontend Development",
-    skills: [
-      {
-        name: "HTML",
-        description:
-          "Semantic, accessible markup that forms the foundation of every web experience.",
-      },
-      {
-        name: "CSS",
-        description:
-          "Responsive styling, animations, and modern layout techniques for polished interfaces.",
-      },
-      {
-        name: "JavaScript",
-        description:
-          "Interactive logic, DOM manipulation, and modern ES6+ patterns for dynamic web apps.",
-      },
-      {
-        name: "React",
-        description:
-          "Component-based UI development with hooks, state management, and reusable architecture.",
-      },
-      {
-        name: "Next.js",
-        description:
-          "Full-stack React framework for performant, SEO-friendly applications with App Router.",
-      },
-    ],
+    description:
+      "Turning product ideas and designs into responsive, interactive web experiences.",
+    tags: ["HTML", "CSS", "JavaScript", "React", "Next.js"],
   },
   {
     id: "mobile",
     title: "Mobile Development",
-    skills: [
-      {
-        name: "Dart",
-        description:
-          "Type-safe language for building cross-platform mobile applications.",
-      },
-      {
-        name: "Flutter",
-        description:
-          "Cross-platform mobile UI framework for building natively compiled apps from a single codebase.",
-      },
-    ],
+    description:
+      "Building practical mobile experiences designed around real user needs.",
+    tags: ["Dart", "Flutter"],
   },
   {
     id: "backend",
-    title: "Backend & Data",
-    skills: [
-      {
-        name: "Python",
-        description:
-          "Versatile language for backend APIs, data processing, and machine learning pipelines.",
-      },
-      {
-        name: "PostgreSQL",
-        description:
-          "Relational database design, querying, and data modeling for structured application data.",
-      },
-      {
-        name: "Data & Machine Learning",
-        description:
-          "Exploring datasets, building models with scikit-learn, and deriving actionable insights.",
-      },
-    ],
+    title: "Backend Development",
+    description:
+      "Building the systems and APIs that power reliable and connected digital products.",
+    tags: ["Python", "APIs", "PostgreSQL"],
   },
   {
-    id: "quality",
-    title: "Quality & Security",
-    skills: [
-      {
-        name: "Quality Assurance",
-        description:
-          "Manual and automated testing strategies to catch issues before users do.",
-      },
-      {
-        name: "Cybersecurity",
-        description:
-          "Understanding secure coding practices, threat modeling, and protecting user data.",
-      },
-    ],
+    id: "iot",
+    title: "IoT",
+    description:
+      "Connecting physical devices and digital systems to create data-driven experiences.",
+    tags: ["ESP32", "Sensors", "IoT systems"],
   },
   {
-    id: "emerging",
-    title: "Emerging Technology",
-    skills: [
-      {
-        name: "IoT",
-        description:
-          "Exploring connected devices, sensor data, and the intersection of hardware and software.",
-      },
-    ],
+    id: "qa",
+    title: "Quality Assurance",
+    description:
+      "Testing products systematically to identify issues and improve reliability.",
+    tags: ["Test cases", "Functional testing", "Usability testing"],
+  },
+  {
+    id: "cybersecurity",
+    title: "Cybersecurity",
+    description:
+      "Applying security principles to identify vulnerabilities and build safer digital products.",
+    tags: ["Security fundamentals", "Vulnerability awareness", "Secure development"],
   },
 ];

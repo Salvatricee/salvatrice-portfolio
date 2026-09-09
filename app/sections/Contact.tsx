@@ -55,7 +55,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 bg-surface">
+    <section id="contact" className="relative py-24 lg:py-32 bg-white border-t border-line">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <AnimatedSection>
           <div className="max-w-2xl mb-16">
@@ -63,11 +63,12 @@ export default function Contact() {
               Get In Touch
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-ink mb-6">
-              Let&apos;s Build Something Together.
+              Have a problem worth solving?
             </h2>
             <p className="text-muted text-lg leading-relaxed">
-              Whether it&apos;s a product idea, a design problem, or just a
-              conversation about technology, I&apos;d love to hear from you.
+              I&apos;m always interested in ideas, problems, and opportunities 
+              where technology can create something genuinely useful.
+              If you have something worth exploring, I&apos;d love to hear from you.
             </p>
           </div>
         </AnimatedSection>

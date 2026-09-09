@@ -34,8 +34,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
-              Multidisciplinary technology professional exploring product,
-              design, development, and emerging technology.
+              Product builder exploring problems, technology, 
+              and better ways to build.
             </p>
           </div>
 
@@ -81,7 +81,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm">© 2026 Salvatrice Igabineza. Designed with curiosity.</p>
+          <p className="text-sm">© 2026 Salvatrice Igabineza. Built with curiosity.</p>
           <button onClick={scrollToTop} className="flex items-center gap-2 text-sm hover:text-primary-blue transition-colors">
             <ArrowUp className="w-4 h-4" />
             Back to top

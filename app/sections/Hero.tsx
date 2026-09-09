@@ -19,16 +19,16 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="space-y-8">
             <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-ink animate-fade-up">
-              I turn <span className="text-primary-blue">ideas</span> into
-              experiences, and problems into{" "}
-              <span className="text-primary-blue">products</span>.
+              I look beyond the <span className="text-primary-blue">problem</span> to build
+              what could{" "}
+              <span className="text-primary-blue">solve</span> it.
             </h1>
 
             <p className="text-muted text-lg leading-relaxed max-w-xl animate-fade-up-delay-1">
-              I&apos;m a multidisciplinary technology professional exploring the
-              intersection of product, design, development, data, and emerging
-              technology. I enjoy going beyond the idea, understanding the
-              problem, designing the experience, and building the solution.
+              I&apos;m drawn to real-world problems, the messy ones that don&apos;t 
+              have obvious answers. I like understanding what&apos;s really
+              happening, looking beyond the surface, and using product thinking,
+              design, and technology to turn insights into meaningful solutions.
             </p>
 
             <div className="flex flex-wrap gap-4 animate-fade-up-delay-2">
@@ -54,7 +54,7 @@ export default function Hero() {
                 Salvatrice Igabineza
               </h2>
               <p className="text-muted text-sm mt-1">
-                Aspiring Product Builder & Software Engineer
+                Product Builder · Data Enthusiast
               </p>
             </div>
           </div>

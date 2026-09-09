@@ -6,7 +6,6 @@ import Image from "next/image";
 import AnimatedSection from "../components/AnimatedSection";
 import { projects } from "../data/projects";
 import { ExternalLink, ChevronRight } from "lucide-react";
-import { GithubIcon } from "../components/BrandIcons";
 
 export default function FeaturedWork() {
   const [expandedProject, setExpandedProject] = useState<string | null>(null);
@@ -23,9 +22,10 @@ export default function FeaturedWork() {
               Selected Work
             </h2>
             <p className="text-muted text-lg leading-relaxed">
-              A collection of projects where I have explored ideas, built
-              solutions, collaborated with others, and continued learning by
-              doing.
+              I&apos;m most interested in projects that begin with a real problem.
+              These are some of the products and experiments where I&apos;ve
+              explored the problem, challenged assumptions, and used technology
+              to work toward a meaningful solution.
             </p>
           </div>
         </AnimatedSection>
@@ -38,35 +38,19 @@ export default function FeaturedWork() {
                   <div className="relative h-64 lg:h-auto min-h-[300px] bg-surface flex items-center justify-center overflow-hidden">
                     <div className="relative text-center p-8">
                       {project.logoImage ? (
-                        <div className="w-40 h-40 mx-auto mb-4 relative">
-                          <Image
-                            src={project.logoImage}
-                            alt={`${project.title} logo`}
-                            fill
-                            className="object-contain"
-                          />
+                        <div className="w-40 h-40 mx-auto relative">
+                          <Image src={project.logoImage} alt={`${project.title} logo`} fill className="object-contain" />
                         </div>
-                      ) : project.logoText ? (
-                        <div className="mx-auto mb-4 flex flex-col items-center gap-2">
+                      ) : (
+                        <div className="flex flex-col items-center gap-2">
                           <span className="text-7xl" style={{ color: project.logoAccent }}>
                             {project.logoEmoji}
                           </span>
-                          <span
-                            className="font-heading font-bold text-3xl tracking-widest"
-                            style={{ color: project.logoAccent }}
-                          >
+                          <span className="font-heading font-bold text-3xl tracking-widest" style={{ color: project.logoAccent }}>
                             {project.logoText}
                           </span>
                         </div>
-                      ) : (
-                        <div
-                          className="w-40 h-40 mx-auto mb-4 flex items-center justify-center text-7xl"
-                          style={{ color: project.logoAccent }}
-                        >
-                          {project.logoEmoji}
-                        </div>
                       )}
-                      <p className="text-ink font-heading font-bold text-xl mt-2">{project.title}</p>
                     </div>
                   </div>
 
@@ -81,7 +65,7 @@ export default function FeaturedWork() {
                       {project.title}
                     </h3>
 
-                    <p className="text-muted leading-relaxed mb-6">{project.description}</p>
+                    <p className="text-muted leading-relaxed mb-6">{project.cardDescription}</p>
 
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.technologies.map((tech) => (
@@ -96,12 +80,6 @@ export default function FeaturedWork() {
                         View Project
                         <ExternalLink className="w-4 h-4" />
                       </a>
-                      {project.github && (
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted hover:text-ink font-medium transition-colors">
-                          <GithubIcon className="w-4 h-4" />
-                          Code
-                        </a>
-                      )}
                       <button
                         onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
                         className="inline-flex items-center gap-1 text-muted hover:text-ink font-medium transition-colors ml-auto"
@@ -139,29 +117,15 @@ export default function FeaturedWork() {
                               </h4>
                               <p className="text-muted leading-relaxed">{project.solution}</p>
                             </div>
-                            <div>
-                              <h4 className="font-heading text-lg font-bold text-ink mb-2 flex items-center gap-2">
-                                <span className="w-6 h-px bg-primary-blue" />
-                                My Contribution
-                              </h4>
-                              <p className="text-muted leading-relaxed">{project.contribution}</p>
-                            </div>
                           </div>
 
                           <div className="space-y-6">
                             <div>
                               <h4 className="font-heading text-lg font-bold text-ink mb-2 flex items-center gap-2">
                                 <span className="w-6 h-px bg-bright-blue" />
-                                Challenges
+                                My Focus
                               </h4>
-                              <p className="text-muted leading-relaxed">{project.challenges}</p>
-                            </div>
-                            <div>
-                              <h4 className="font-heading text-lg font-bold text-ink mb-2 flex items-center gap-2">
-                                <span className="w-6 h-px bg-bright-blue" />
-                                What I Learned
-                              </h4>
-                              <p className="text-muted leading-relaxed">{project.learned}</p>
+                              <p className="text-muted leading-relaxed">{project.focus}</p>
                             </div>
                           </div>
                         </div>
