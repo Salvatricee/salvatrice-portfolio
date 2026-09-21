@@ -55,7 +55,7 @@ export default function About() {
               <AnimatedSection key={stage.title} delay={index * 0.1}>
                 <div className={`relative flex flex-col md:flex-row gap-8 items-start ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
                   <div className={`flex-1 ${index % 2 === 0 ? "md:text-right md:pr-16" : "md:text-left md:pl-16"}`}>
-                    <div className="group p-6 lg:p-8 rounded-2xl bg-white border border-line hover:border-primary-blue/30 transition-all duration-500 shadow-sm hover:shadow-md">
+                    <div className="group p-6 lg:p-8 rounded-2xl bg-card border border-line hover:border-primary-blue/30 transition-all duration-500 shadow-sm hover:shadow-md">
                       <div className="flex items-center gap-4 mb-4 justify-start md:justify-inherit">
                         <span className={`font-heading text-5xl font-bold text-primary-blue/15 group-hover:text-primary-blue/30 transition-colors ${index % 2 === 0 ? "md:order-2" : ""}`}>
                           0{index + 1}

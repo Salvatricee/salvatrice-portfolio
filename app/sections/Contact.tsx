@@ -6,11 +6,11 @@ import { Mail, MessageSquare, User, Send } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "../components/BrandIcons";
 import AnimatedSection from "../components/AnimatedSection";
 
-const WEB3FORMS_ACCESS_KEY = "PASTE_YOUR_ACCESS_KEY_HERE";
+const WEB3FORMS_ACCESS_KEY = "eda24aa3-9b84-4a11-aa62-42ff6f68aea7";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error" | "submit-error">("idle");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,7 +22,7 @@ export default function Contact() {
     e.preventDefault();
 
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setStatus("error");
+      setStatus("submit-error");
       return;
     }
 
@@ -47,15 +47,15 @@ export default function Contact() {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setStatus("error");
+        setStatus("submit-error");
       }
     } catch {
-      setStatus("error");
+      setStatus("submit-error");
     }
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 bg-white border-t border-line">
+    <section id="contact" className="relative py-24 lg:py-32 bg-card border-t border-line">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <AnimatedSection>
           <div className="max-w-2xl mb-16">
@@ -63,12 +63,11 @@ export default function Contact() {
               Get In Touch
             </span>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-ink mb-6">
-              Have a problem worth solving?
+              Let&apos;s Build Something Together.
             </h2>
             <p className="text-muted text-lg leading-relaxed">
-              I&apos;m always interested in ideas, problems, and opportunities 
-              where technology can create something genuinely useful.
-              If you have something worth exploring, I&apos;d love to hear from you.
+              Whether it&apos;s a product idea, a design problem, or just a
+              conversation about technology, I&apos;d love to hear from you.
             </p>
           </div>
         </AnimatedSection>
@@ -82,14 +81,7 @@ export default function Contact() {
                 <label className="block text-sm font-medium text-ink mb-2">Name</label>
                 <div className="relative">
                   <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted" />
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your name"
-                    className="w-full pl-11 pr-4 py-3 rounded-lg border border-line bg-white text-ink placeholder:text-muted focus:outline-none focus:border-primary-blue transition-colors"
-                  />
+                  <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your name" className="w-full pl-11 pr-4 py-3 rounded-lg border border-line bg-card text-ink placeholder:text-muted focus:outline-none focus:border-primary-blue transition-colors" />
                 </div>
               </div>
 
@@ -97,14 +89,7 @@ export default function Contact() {
                 <label className="block text-sm font-medium text-ink mb-2">Email</label>
                 <div className="relative">
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted" />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="you@example.com"
-                    className="w-full pl-11 pr-4 py-3 rounded-lg border border-line bg-white text-ink placeholder:text-muted focus:outline-none focus:border-primary-blue transition-colors"
-                  />
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="you@example.com" className="w-full pl-11 pr-4 py-3 rounded-lg border border-line bg-card text-ink placeholder:text-muted focus:outline-none focus:border-primary-blue transition-colors" />
                 </div>
               </div>
 
@@ -112,34 +97,21 @@ export default function Contact() {
                 <label className="block text-sm font-medium text-ink mb-2">Message</label>
                 <div className="relative">
                   <MessageSquare className="absolute left-4 top-3 w-4 h-4 text-muted" />
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={5}
-                    placeholder="Tell me about your project or just say hello..."
-                    className="w-full pl-11 pr-4 py-3 rounded-lg border border-line bg-white text-ink placeholder:text-muted focus:outline-none focus:border-primary-blue transition-colors resize-none"
-                  />
+                  <textarea name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="Tell me about your project or just say hello..." className="w-full pl-11 pr-4 py-3 rounded-lg border border-line bg-card text-ink placeholder:text-muted focus:outline-none focus:border-primary-blue transition-colors resize-none" />
                 </div>
               </div>
 
               {status === "error" && (
-                <p className="text-sm text-red-600">
-                  Please fill in every field before sending, or try again in a moment.
-                </p>
+                <p className="text-sm text-red-600">Please fill in every field before sending.</p>
+              )}
+              {status === "submit-error" && (
+                <p className="text-sm text-red-600">Something went wrong while sending your message. Please try again, or email me directly.</p>
               )}
               {status === "success" && (
-                <p className="text-sm text-primary-blue">
-                  Thanks for reaching out! I&apos;ll get back to you soon.
-                </p>
+                <p className="text-sm text-primary-blue">Thanks for reaching out! I&apos;ll get back to you soon.</p>
               )}
 
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                disabled={status === "sending"}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary-blue hover:bg-bright-blue text-white font-medium rounded-lg transition-colors disabled:opacity-60"
-              >
+              <motion.button type="submit" whileHover={{ scale: 1.02 }} disabled={status === "sending"} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary-blue hover:bg-bright-blue text-white font-medium rounded-lg transition-colors disabled:opacity-60">
                 {status === "sending" ? "Sending..." : "Send Message"}
                 <Send className="w-4 h-4" />
               </motion.button>
@@ -147,13 +119,11 @@ export default function Contact() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2} className="lg:col-span-2 space-y-6">
-            <div className="bg-white border border-line rounded-2xl p-8 shadow-sm">
+            <div className="bg-card border border-line rounded-2xl p-8 shadow-sm">
               <h3 className="font-heading text-lg font-bold text-ink mb-3">Prefer a direct message?</h3>
-              <p className="text-muted text-sm leading-relaxed mb-6">
-                You can also reach me directly through any of these.
-              </p>
+              <p className="text-muted text-sm leading-relaxed mb-6">You can also reach me directly through any of these.</p>
               <div className="space-y-3">
-                <a href="mailto:isalvatricee@gmail.com" className="flex items-center gap-3 text-ink hover:text-primary-blue transition-colors">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=isalvatricee@gmail.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-ink hover:text-primary-blue transition-colors">
                   <Mail className="w-4 h-4" />
                   Email
                 </a>
@@ -161,7 +131,7 @@ export default function Contact() {
                   <GithubIcon className="w-4 h-4" />
                   GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/salvatrice-igabineza-0535a2302" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-ink hover:text-primary-blue transition-colors">
+                <a href="https://www.linkedin.com/in/salvatrice-igabineza-0535a2302/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-ink hover:text-primary-blue transition-colors">
                   <LinkedinIcon className="w-4 h-4" />
                   LinkedIn
                 </a>

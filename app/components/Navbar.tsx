@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import SIMonogram from "./SIMonogram";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
   { name: "Work", href: "#work" },
+  { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -37,7 +38,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/90 backdrop-blur-md border-b border-line"
+            ? "bg-card/90 backdrop-blur-md border-b border-line"
             : "bg-transparent"
         }`}
       >
@@ -62,21 +63,27 @@ export default function Navbar() {
               ))}
             </div>
 
-            <button
-              onClick={() => scrollTo("#contact")}
-              className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary-blue hover:bg-bright-blue text-white text-sm font-medium rounded-lg transition-all duration-300 group"
-            >
-              Let&apos;s Talk
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </button>
+            <div className="hidden md:flex items-center gap-3">
+              <ThemeToggle />
+              <button
+                onClick={() => scrollTo("#contact")}
+                className="flex items-center gap-2 px-5 py-2.5 bg-primary-blue hover:bg-bright-blue text-white text-sm font-medium rounded-lg transition-all duration-300 group"
+              >
+                Let&apos;s Talk
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
 
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-ink p-2"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            <div className="md:hidden flex items-center gap-2">
+              <ThemeToggle />
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-ink p-2"
+                aria-label="Toggle menu"
+              >
+                {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -88,7 +95,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-white/98 backdrop-blur-lg md:hidden"
+            className="fixed inset-0 z-40 bg-card/98 backdrop-blur-lg md:hidden"
           >
             <div className="flex flex-col items-center justify-center h-full gap-8">
               {navLinks.map((link, index) => (

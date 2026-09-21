@@ -33,7 +33,7 @@ export default function FeaturedWork() {
         <div className="space-y-8">
           {projects.map((project, index) => (
             <AnimatedSection key={project.id} delay={index * 0.1}>
-              <motion.div className="group relative rounded-2xl bg-white border border-line overflow-hidden hover:border-primary-blue/30 transition-all duration-500 shadow-sm hover:shadow-md" layout>
+              <motion.div className="group relative rounded-2xl bg-card border border-line overflow-hidden hover:border-primary-blue/30 transition-all duration-500 shadow-sm hover:shadow-md" layout>
                 <div className="grid lg:grid-cols-2 gap-0">
                   <div className="relative h-64 lg:h-auto min-h-[300px] bg-surface flex items-center justify-center overflow-hidden">
                     <div className="relative text-center p-8">
