@@ -8,8 +8,8 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setIsDark(stored ? stored === "dark" : prefersDark);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsDark(stored === "dark");
   }, []);
 
   const toggleTheme = () => {
@@ -20,11 +20,7 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
   };
 
   return (
-    <button
-      onClick={toggleTheme}
-      aria-label="Toggle dark mode"
-      className={`flex items-center justify-center w-9 h-9 rounded-lg border border-line text-ink hover:border-primary-blue/50 transition-colors ${className}`}
-    >
+    <button onClick={toggleTheme} aria-label="Toggle dark mode" className={`flex items-center justify-center w-9 h-9 rounded-lg border border-line text-ink hover:border-primary-blue/50 transition-colors ${className}`}>
       {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
     </button>
   );
